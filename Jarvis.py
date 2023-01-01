@@ -78,8 +78,16 @@ def run_alexa():
         talk('I am in a relationship with wifi')
     elif 'joke' in command:
         talk(pyjokes.get_joke())
+    elif 'stop' and 'program' in command:
+        talk('stop the program')
+        return False
     else:
         talk('Please say the command again.')
 
-while True:
-    run_alexa()
+    return True
+
+running = True
+while running:
+    running = run_alexa()
+
+print('program was stopped')
